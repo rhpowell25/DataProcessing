@@ -18,7 +18,7 @@ if ~isequal(xds_morn.unit_names, xds_noon.unit_names)
         disp(morn_extra_unit);
     end
 
-    % If the extra unit is in the morning
+    % If the extra unit is in the afternoon
     noon_extra_unit = setdiff(xds_noon.unit_names, xds_morn.unit_names);
     if ~isempty(noon_extra_unit)
         disp('Extra units in the afternoon:')
@@ -27,7 +27,7 @@ if ~isequal(xds_morn.unit_names, xds_noon.unit_names)
 
 end
 
-%% Remove those extra units and their spike data
+%% Remove those extra units & their spike data
 if ~isempty(morn_extra_unit)
     for ii = 1:length(morn_extra_unit)
         delete_unit_idx = find(strcmp(xds_morn.unit_names, morn_extra_unit(ii)));
@@ -54,7 +54,7 @@ if ~isempty(noon_extra_unit)
     end
 end
 
-%% Confirm morning and afternoon files are now identical
+%% Confirm morning & afternoon files are now identical
 
 if isequal(xds_morn.unit_names, xds_noon.unit_names)
     disp('Units Are Identical Now');

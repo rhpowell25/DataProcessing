@@ -1,20 +1,24 @@
 clc
 clear
+
+Monkey_Hand = 'Left';
+%TgtHold = 0.2;
+
 params = struct( ...
-    'monkey_name', 'Pop', ...s
+    'monkey_name', 'Pop', ...
     'array_name', 'M1', ...
-    'task_name', 'FR', ... % WS /multi_gadget / FR / WB
+    'task_name', 'FR', ... % WS, multi_gadget, FR, WB, etc.
     'ran_by', 'EG', ...
     'lab', 1, ...
-    'bin_width', 0.033,...
+    'bin_width', 0.001,...
     'sorted', 1,...
     'requires_raw_emg', 1,...
     'save_waveforms', 1);
 
-file_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pop\20220309\Trimmed\';
+file_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pop\20210712\';
 map_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pop\';
 map_name = 'SN 6250-002339';
-save_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pop\20220309\Trimmed\'; 
+save_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pop\20210712\'; 
 open_file = strcat(file_dir, '*.nev');
 file = dir(open_file);
 
@@ -22,6 +26,9 @@ for ii = 1:length(file)
     file_name = file(ii).name(1:end-4);
     disp(file_name);
     xds = raw_to_xds(file_dir, file_name, map_dir, map_name, params);
+    %[xds] = CalculateNonLinearEnergy(xds);
+    xds.meta.hand = Monkey_Hand;
+    %xds.meta.TgtHold = TgtHold;
     save_file = strcat(file_name, '.mat');
     save(strcat(save_dir, save_file), 'xds', '-v7.3');
     clear xds

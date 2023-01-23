@@ -1,8 +1,8 @@
 %% Set the Path of the files
 clc
 clear
-xds_path_unsorted = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pancake\20220921\XDS\Unsorted\';
-xds_path_sorted = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pancake\20220921\XDS\Sorted\';
+xds_path_unsorted = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pancake\20221102\';
+xds_path_sorted = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pancake\20221102\Sorted\';
 
 %% Identify all the .mat files in the unsorted path
 xds_unsorted = strcat(xds_path_unsorted, '*.mat');
@@ -103,9 +103,7 @@ for ii = 1:length(unsorted_file)
         tgt_cntrs = xds.trial_info_table{pp, tgt_Center_idx};
         xds.trial_info_table{pp, Dist_idx} = round(sqrt((tgt_cntrs(1,1))^2 + (tgt_cntrs(1,2))^2), 1);
     end
-    %% Add additional meta data
-    xds.meta.hand = 'Right';
-    %xds.meta.TgtHold = 0.1;
+    
     %% Save the updated xds
     save(strcat(xds_path_sorted, file_name_in_list), 'xds', '-v7.3');
     disp('*******Done*********');
