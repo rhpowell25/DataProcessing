@@ -2,6 +2,9 @@ function [xds] = Remove_Unit(xds, unit_name)
 
 %% Remove a bad unit from a file
 unit_idx = find(strcmp(xds.unit_names, unit_name));
+if isempty(unit_idx)
+    return
+end
 xds.unit_names(unit_idx) = [];
 xds.spikes(unit_idx) = [];
 xds.spike_waveforms(unit_idx) = [];

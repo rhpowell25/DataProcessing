@@ -102,7 +102,7 @@ end
 if strcmp(Date, '20210304') && strcmp(Task, 'PG')
 
     % Remove a bad unit
-    unit_name = 'elec21_2';
+    unit_name = 'elec10_1';
     [xds_morn] = Remove_Unit(xds_morn, unit_name);
     [xds_noon] = Remove_Unit(xds_noon, unit_name);
 

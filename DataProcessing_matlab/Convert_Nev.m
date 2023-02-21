@@ -1,6 +1,6 @@
 clc
 clear
-file_path = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pancake\20221102\';
+file_path = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Pop\20210902\New folder\';
 open_file = strcat(file_path, '*.mat');
 file = dir(open_file);
 for ii = 1:length(file)
