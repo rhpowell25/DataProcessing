@@ -48,6 +48,13 @@ if ~strcmp(xds.meta.task, 'FR')
     xds.trial_target_corners(nan_idx,:) = [];
     clear nan_idx
 
+    %% Fix changes in the number of trials
+    num_trials = length(xds.trial_info_table);
+    trial_num_idx = find(strcmp(xds.trial_info_table_header, 'number'));
+    for ii = 1:num_trials
+        xds.trial_info_table(ii,trial_num_idx) = {ii};
+    end
+
 end
 
 

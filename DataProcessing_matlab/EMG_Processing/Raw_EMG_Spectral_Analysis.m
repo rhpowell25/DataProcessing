@@ -36,7 +36,10 @@ for ii = 1:width(raw_EMG)
 end
 
 %% Calculate the Welch Power Spectral Density of the raw EMG
-[raw_EMG_welch_PSD, welch_freq] = pwelch(raw_EMG, [], [], [], samp_freq);
+% How many indexes do you want each window to be?
+window_length = 100000;
+
+[raw_EMG_welch_PSD, welch_freq] = pwelch(raw_EMG, window_length, [], [], samp_freq);
 
 %% Plot the raw EMG, FFT magnitude response, and welch filter
 

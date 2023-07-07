@@ -31,12 +31,9 @@ trial_date = erase(File_Name, strcat('_', nondate_info));
 nonmonkey_info = extractAfter(nondate_info, '_');
 monkey_name = erase(nondate_info, strcat('_', nonmonkey_info));
 
-% Task
-nontask_info = extractAfter(nonmonkey_info, '_');
-trial_task = erase(nonmonkey_info, strcat('_', nontask_info));
-
 % File Path
-file_path = strcat('C:\Users\rhpow\Documents\Grad School\', monkey_name, '\', trial_date, '\Raw Data\', trial_task, '\EMG\');
+file_path = strcat('C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\', ...
+    monkey_name, '\', trial_date, '\');
 
 if (File_Name == 0)
     return;

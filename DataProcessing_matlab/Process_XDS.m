@@ -61,17 +61,59 @@ if Match_The_Targets == 1
 end
 
 %% Process problems with specific XDS files
-
 % Date
-file_name = xds_morn.meta.rawFileName;
-xtra_info = extractAfter(file_name, '_');
-Date = erase(file_name, strcat('_', xtra_info));
-
+File_Name = xds_noon.meta.rawFileName;
+nondate_info = extractAfter(File_Name, '_');
+Date = erase(File_Name, strcat('_', nondate_info));
+% Monkey
+nonmonkey_info = extractAfter(nondate_info, '_');
 % Task
-if strcmp(xds_morn.meta.task, 'multi_gadget')
-    Task = 'PG';
-else
-    Task = xds_morn.meta.task;
+nontask_info = extractAfter(nonmonkey_info, '_');
+Task = erase(nonmonkey_info, strcat('_', nontask_info));
+
+if strcmp(Date, '20230419')
+
+    % In this experiment the target centers were offset by -1
+    % Change all the target directions to 90
+    xds_morn.trial_info_table(:,tgtDir_idx) = {90};
+    xds_morn.trial_target_dir(:,1) = 90;
+    xds_noon.trial_info_table(:,tgtDir_idx) = {90};
+    xds_noon.trial_target_dir(:,1) = 90;
+
+end
+
+if strcmp(Date, '20230414')
+
+    % In this experiment the target centers were offset by -1
+    % Change all the target directions to 90
+    xds_morn.trial_info_table(:,tgtDir_idx) = {90};
+    xds_morn.trial_target_dir(:,1) = 90;
+    xds_noon.trial_info_table(:,tgtDir_idx) = {90};
+    xds_noon.trial_target_dir(:,1) = 90;
+
+end
+
+if strcmp(Date, '20230411')
+
+    % In this experiment the target centers were offset by -1
+    % Change all the target directions to 90
+    xds_morn.trial_info_table(:,tgtDir_idx) = {90};
+    xds_morn.trial_target_dir(:,1) = 90;
+    xds_noon.trial_info_table(:,tgtDir_idx) = {90};
+    xds_noon.trial_target_dir(:,1) = 90;
+
+    % Remove a bad unit
+    unit_name = 'elec92_1';
+    [xds_morn] = Remove_Unit(xds_morn, unit_name);
+    [xds_noon] = Remove_Unit(xds_noon, unit_name);
+
+end
+
+if strcmp(Date, '20230317')
+    % Remove a bad unit
+    unit_name = 'elec75_1';
+    [xds_morn] = Remove_Unit(xds_morn, unit_name);
+    [xds_noon] = Remove_Unit(xds_noon, unit_name);
 end
 
 if strcmp(Date, '20220907')
