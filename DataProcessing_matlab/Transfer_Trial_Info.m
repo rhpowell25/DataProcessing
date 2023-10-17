@@ -1,7 +1,7 @@
 %% Set the Path of the files
 clc
 clear
-xds_path = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Tot\20230428\New folder\';
+xds_path = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Tot\20230930\New folder\';
 
 %% Identify all the unsorted .mat files in the unsorted path
 xds_files = strcat(xds_path, '*.mat');
@@ -73,7 +73,7 @@ for ii = 1:length(unsorted_files)
     xds.trial_target_corners = trial_target_corners;
     
     %% Save the updated xds
-    Save_XDS(xds)
+    Save_XDS(xds);
     disp('*******Done*********');
 end
 

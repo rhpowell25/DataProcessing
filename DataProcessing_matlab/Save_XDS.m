@@ -14,5 +14,6 @@ Monkey = xds.meta.monkey;
 save_dir = strcat('C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\', Monkey, '\', Date, '\');
 
 % Save the file
-sprintf('Saving: %s', file_name)
+sprintf('Saving: %s', file_name);
 save(strcat(save_dir, file_name), 'xds', '-v7.3');
+disp('*******Done*********');

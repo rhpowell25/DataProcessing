@@ -71,6 +71,20 @@ nonmonkey_info = extractAfter(nondate_info, '_');
 nontask_info = extractAfter(nonmonkey_info, '_');
 Task = erase(nonmonkey_info, strcat('_', nontask_info));
 
+if strcmp(Date, '20230930')
+    % Remove a bad unit
+    unit_name = 'elec27_1';
+    [xds_morn] = Remove_Unit(xds_morn, unit_name);
+    [xds_noon] = Remove_Unit(xds_noon, unit_name);
+end
+
+if strcmp(Date, '20230913')
+    % Remove a bad unit
+    unit_name = 'elec65_1';
+    [xds_morn] = Remove_Unit(xds_morn, unit_name);
+    [xds_noon] = Remove_Unit(xds_noon, unit_name);
+end
+
 if strcmp(Date, '20230419')
 
     % In this experiment the target centers were offset by -1
@@ -138,15 +152,6 @@ if strcmp(Date, '20220907')
         xds_noon.trial_result(ext_idx) = 'F';
 
     end
-
-end
-
-if strcmp(Date, '20210304') && strcmp(Task, 'PG')
-
-    % Remove a bad unit
-    unit_name = 'elec10_1';
-    [xds_morn] = Remove_Unit(xds_morn, unit_name);
-    [xds_noon] = Remove_Unit(xds_noon, unit_name);
 
 end
 
