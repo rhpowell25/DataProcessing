@@ -1,24 +1,24 @@
 clc
 clear
 
-Monkey_Hand = 'Right';
-TgtHold = 0.7;
+Monkey_Hand = 'Left';
+TgtHold = 0.5;
 
 params = struct( ...
-    'monkey_name', 'Tot', ...
+    'monkey_name', 'Mojito', ...
     'array_name', 'M1', ...
-    'task_name', 'WS', ... % WS, multi_gadget, FR, WB, etc.
+    'task_name', 'multi_gadget', ... % WS, multi_gadget, FR, WB, etc.
     'ran_by', 'HP', ...
     'lab', 6, ...
     'bin_width', 0.001, ...
-    'sorted', 0, ...
+    'sorted', 1, ...
     'requires_raw_emg', 0, ...
     'save_waveforms', 1);
 
-file_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Tot\20230930\';
-map_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Tot\';
-map_name = 'SN 6251-002471 array 1066-5';
-save_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Tot\20230930\';
+file_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Mojito\20230902\';
+map_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Mojito\';
+map_name = 'SN 6250-002658 1780-16';
+save_dir = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Mojito\20230902\';
 open_file = strcat(file_dir, '*.ccf');
 file = dir(open_file);
 

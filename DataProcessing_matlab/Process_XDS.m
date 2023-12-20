@@ -55,7 +55,9 @@ if Match_The_Targets == 1
             xds_noon.trial_info_table(rewarded_idx, result_idx) = {'F'};
             xds_noon.trial_result(rewarded_idx) = 'F';
         end
-    
+   
+
+        disp('Targets Are Now Matched');
     end
 
 end
@@ -126,6 +128,13 @@ end
 if strcmp(Date, '20230317')
     % Remove a bad unit
     unit_name = 'elec75_1';
+    [xds_morn] = Remove_Unit(xds_morn, unit_name);
+    [xds_noon] = Remove_Unit(xds_noon, unit_name);
+end
+
+if strcmp(Date, '20230308')
+    % Remove a bad unit
+    unit_name = 'elec37_1';
     [xds_morn] = Remove_Unit(xds_morn, unit_name);
     [xds_noon] = Remove_Unit(xds_noon, unit_name);
 end

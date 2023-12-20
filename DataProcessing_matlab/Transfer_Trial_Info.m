@@ -1,7 +1,7 @@
 %% Set the Path of the files
 clc
 clear
-xds_path = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Tot\20230930\New folder\';
+xds_path = 'C:\Users\rhpow\Documents\Work\Northwestern\Monkey_Data\Mojito\20230902\';
 
 %% Identify all the unsorted .mat files in the unsorted path
 xds_files = strcat(xds_path, '*.mat');
